@@ -1,9 +1,9 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Button } from 'react-native';
 import { Entypo } from '@expo/vector-icons';
 
-export default function HomeScreen() {
+export default function HomeScreen({ navigation }) {
 
   return (
     <View style={{ flex: 1, paddingTop: 50}}>
@@ -31,6 +31,10 @@ export default function HomeScreen() {
         <Text style={styles.text}>Row 1</Text>
         <Text style={styles.text}>Row 2</Text>
       </View>
+      <Button
+        title="Go to Details"
+        onPress={() => navigation.navigate('About')}
+      />
     </View>
   );
 }
