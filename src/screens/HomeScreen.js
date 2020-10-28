@@ -6,53 +6,38 @@ import { Entypo } from '@expo/vector-icons';
 export default function HomeScreen({ navigation }) {
 
   return (
-    <View style={{ flex: 1, paddingTop: 50}}>
-      <View style={styles.container}>
-        <Text>Hello world!</Text>
-        <Text>Hello world!</Text>
-        <Text>Hello world!</Text>
-        <Entypo name="user" size={24} color="green" />
-        
-        <StatusBar style="auto" />
+    <View style={styles.container}>
+      <View>
+        <Text style={styles.text}>Welcome Dhaka South City Corporation</Text>
       </View>
-      <View style={{
-        flexDirection: 'row',
-        justifyContent: 'space-evenly',
-
-      }}>
-        <Text style={styles.text2}>Apple</Text>
-        <Text style={styles.text2}>Banana</Text>
+      <View style={styles.button}>
+        <Button title="Go to Details" onPress={() => navigation.navigate('About')}/>
+        <Button title="CREATE AN ACCOUNT" style={styles.register} onPress={() => navigation.navigate('Register')}/>
       </View>
-      <View style={{
-        flexDirection: 'row',
-        justifyContent: 'space-evenly',
-        paddingTop: 30
-      }}>
-        <Text style={styles.text}>Row 1</Text>
-        <Text style={styles.text}>Row 2</Text>
-      </View>
-      <Button
-        title="Go to Details"
-        onPress={() => navigation.navigate('About')}
-      />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
   },
-  text: { 
-    fontSize: 20, 
-    fontWeight: '600'
+  button: {
+    paddingTop:200,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
-  text2: { 
+  text:{
+    paddingTop:100,
+    fontSize:16,
+    fontFamily: "Cochin"
+  },
+  register: { 
     fontSize: 20, 
     fontWeight: '600',
-    color: 'red'
+    color: 'red',
+    padding:10,
   }
 });
