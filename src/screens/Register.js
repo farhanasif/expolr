@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, Image, TextInput, View, Button } from 'react-native';
 import { Entypo } from '@expo/vector-icons';
-// import StyleSheet from './src/style/Register';
+import styles from './customStyle';
 
 export default function RegisterScreen({ navigation }) {
 
@@ -48,58 +48,58 @@ export default function RegisterScreen({ navigation }) {
   );
 }
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: "#fff",
-        alignItems: 'center',
-        justifyContent: 'center'
-      },
-      formInput:{
-        height: 40,
-        backgroundColor: "#fff", 
-        color: '#FFF',
-        marginHorizontal: 10,
-        paddingHorizontal: 10,
-        textAlignVertical: 'top'
-      },
+// const styles = StyleSheet.create({
+//     container: {
+//         flex: 1,
+//         backgroundColor: "#fff",
+//         alignItems: 'center',
+//         justifyContent: 'center'
+//       },
+//       formInput:{
+//         height: 40,
+//         backgroundColor: "#fff", 
+//         color: '#FFF',
+//         marginHorizontal: 10,
+//         paddingHorizontal: 10,
+//         textAlignVertical: 'top'
+//       },
 
-      allInputField: {
-        flex: 1,
-        paddingTop:10,
-        paddingRight: 200,
-        paddingBottom: 10,
-        paddingLeft: 0,
-        backgroundColor: '#fff',
-        color: '#424242',
-        fontSize: 15,
-        width: 250,
-    },
+//       allInputField: {
+//         flex: 1,
+//         paddingTop:10,
+//         paddingRight: 200,
+//         paddingBottom: 10,
+//         paddingLeft: 0,
+//         backgroundColor: '#fff',
+//         color: '#424242',
+//         fontSize: 15,
+//         width: 250,
+//     },
 
 
-    logo: {
-        width: 250,
-        height: 230,
-        marginTop: 25,
-        alignSelf: 'center'
-    },
+//     logo: {
+//         width: 250,
+//         height: 230,
+//         marginTop: 25,
+//         alignSelf: 'center'
+//     },
 
-    allButton:{
-        fontWeight: "bold",
-        padding:8,
-        marginTop:15,
-        fontFamily: "Cochin"
-    },
-    allIcon: {
-        padding: 10,
-        color: '#0F8943',
-        fontSize:24
-    },
+//     allButton:{
+//         fontWeight: "bold",
+//         padding:8,
+//         marginTop:15,
+//         fontFamily: "Cochin"
+//     },
+//     allIcon: {
+//         padding: 10,
+//         color: '#0F8943',
+//         fontSize:24
+//     },
     
-    inputSearch: {
-        flexDirection: 'row',
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#fff',
-    },
-});
+//     inputSearch: {
+//         flexDirection: 'row',
+//         justifyContent: 'center',
+//         alignItems: 'center',
+//         backgroundColor: '#fff',
+//     },
+// });
