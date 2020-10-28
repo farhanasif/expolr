@@ -27,6 +27,7 @@ function AboutScreen({ navigation }) {
       </TouchableOpacity>
       <Button title="Go to Home" onPress={() => navigation.navigate('Home')} />
       <Button title="Go back" onPress={() => navigation.goBack()} />
+      <Button title="Login" onPress={() => navigation.navigate('Login')}/>
     </View>
   );
 }
