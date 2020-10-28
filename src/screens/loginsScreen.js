@@ -1,42 +1,52 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, Image, TextInput, View, Button } from 'react-native';
+import { StyleSheet, Text, Image, TextInput, View, Button, Alert, ScrollView} from 'react-native';
 import { Entypo } from '@expo/vector-icons';
 
 export default function loginScreen({ navigation }) {
 
   return (
-    <View style={{ 
+    <ScrollView style={{ 
       flex: 1, 
-      paddingTop: 70,
       backgroundColor: '#ffff'
       }}>
-      
-      {/* <View>
-        <Image 
-        source = {require('./logo.png')} 
-        style = {styles.logo}
-        />
-      </View> */}
-
       <View style={styles.container}>
-        <View>
+        <View
+        style={{
+          paddingTop: 70
+        }}>
           <Image 
           source = {require('./logo.png')} 
           style = {styles.logo}
           />
         </View>
-      <Entypo name="mail" size={35} color="green" />
-      <Entypo name="keyboard" size={35} color="green" />
       <StatusBar style="auto" />
       </View>
+      
       <View style={{
         flexDirection: 'row',
         justifyContent: 'space-evenly',
-
-      }}>
+        }}>
       </View>
 
+      <View style={styles.input}>
+        <Entypo name="mail" size={35} color="green" />
+        <TextInput
+          style={styles.inputField}
+          placeholder="ই-মেইল   "
+          onChangeText={(searchString) => {this.setState({searchString})}}
+          underlineColorAndroid="green"
+        />
+      </View>
+      <View style={styles.input}>
+        <Entypo name="keyboard" size={35} color="green" />
+        <TextInput
+          style={styles.inputField}
+          placeholder="পাসওয়ার্ড"
+          onChangeText={(searchString) => {this.setState({searchString})}}
+          underlineColorAndroid="green"
+        />
+      </View>
 
       {/* Text INPUT SYSTEM! */}
       {/* <View>
@@ -58,20 +68,34 @@ export default function loginScreen({ navigation }) {
       
       <View style={styles.buttonStyle}>
       <Button
-        title="Sign In"
+        title="সাইন ইন"
         color= "green"
-        onPress={() => navigation.navigate('About')}
+        //onPress={() => navigation.navigate('About')}
+        onPress={() => Alert.alert('No User Found')}
       />
       </View>
 
       <View style={styles.buttonStyle}>
       <Button
-        title="Login With Gmail"
+        title="জিমেইলের সাহায্যে সাইন ইন"
         color= "red"
         onPress={() => navigation.navigate('About')}
       />
       </View>
-
+      
+      <View style={{
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        paddingTop: 18,
+        }}>
+        <Text style={styles.text}
+        onPress={() => navigation.navigate('About')}>
+          নতুন একাউন্ট করুন</Text>
+        <Text style={styles.text}
+        onPress={() => navigation.navigate('About')}>
+          পাসওয়ার্ড ভুলে গেছেন</Text>
+      </View>
 
       {/* <Button
         style={{
@@ -86,10 +110,10 @@ export default function loginScreen({ navigation }) {
         justifyContent: 'space-evenly',
         paddingTop: 100,
         }}>
-        <Text style={styles.text}>Testing today</Text>
+        <Text style={styles.text3}>testing @ 28 Oct, 2020</Text>
         </View>
 
-    </View>
+    </ScrollView>
   );
 }
 
@@ -100,13 +124,20 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   text: { 
-    fontSize: 20, 
-    fontWeight: '600'
+    fontSize: 18,
+    paddingTop: 10,
+    color: 'green', 
+    fontWeight: '900'
   },
   text2: { 
     fontSize: 20, 
     fontWeight: '600',
     color: 'red'
+  },
+  text3: { 
+    fontSize: 12, 
+    fontWeight: '600',
+    color: 'rebeccapurple'
   },
   logo: {
     width: 150,
@@ -118,10 +149,28 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   buttonStyle:{
-    marginTop: 20,
-    paddingBottom: 5,
-    fontWeight: "bold",
-    alignItems: 'center',
+    // marginTop: 5,
+    // paddingBottom: 5,
+    // fontWeight: "bold",
+    // alignItems: 'center',
+    // justifyContent: 'center',
+    backgroundColor: "#ffff",
+    paddingVertical: 10,
+    paddingHorizontal: 85
+  },
+  inputField: {
+    paddingTop: 10,
+    paddingRight: 120,
+    paddingBottom: 10,
+    paddingLeft: 10,
+    backgroundColor: '#fff',
+    color: '#424242',
+},
+  input: {
+    flex: 1,
+    flexDirection: 'row',
     justifyContent: 'center',
-  }
+    alignItems: 'center',
+    backgroundColor: '#fff',
+}
 });
