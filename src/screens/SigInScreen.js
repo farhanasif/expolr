@@ -3,8 +3,13 @@ import { View, StyleSheet} from "react-native";
 import { Input,Button, Card } from 'react-native-elements';
 import { FontAwesome, Feather,AntDesign } from '@expo/vector-icons';
 import {AuthContext} from '../providers/AuthProvider';
+import {getDataJSON} from '../functions/AsyncStorageFunctions';
 
 const SigInScreen = (props) =>{
+
+  const {Email, setEmail} = useState("");
+  const {Password, setPassword} = useState("");
+
   return (
 
     <AuthContext.Consumer>
@@ -16,12 +21,20 @@ const SigInScreen = (props) =>{
           <Input
           leftIcon={<FontAwesome name="envelope" size={24} color="black" />}
             placeholder="E-mail Address"
+
+            onChangeText = {function(currentInput){
+            setEmail(currentInput);
+        }}
           />
 
           <Input
           leftIcon={<Feather name="key" size={24} color="black" />}
             placeholder="Password"
             secureTextEntry={true}
+
+            onChangeText = {function(currentInput){
+            setPassword(currentInput);
+        }}
           />
           <Button
             icon={<AntDesign name="login" size={26} color="white"/>}
@@ -29,7 +42,17 @@ const SigInScreen = (props) =>{
             type='solid'
             onPress={function(){
               //console.log('ok');
-              auth.setIsLoggedIn(true);
+              // auth.setIsLoggedIn(true);
+              let UserData = getDataJSON(Email);
+              if(UserData.password == Password){
+                // props.navigation.navigation("Home");
+                auth.setIsLoggedIn(true);
+                auth.setCurrentUser(UserData);
+              } else{
+                alert('login Failed');
+                console.log(UserData);
+              }
+
             }}
           />
 
