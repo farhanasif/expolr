@@ -6,10 +6,10 @@ import {storeDataJSON} from '../functions/AsyncStorageFunctions';
 
 const SignUpScreen = (props) =>{
 
-  const {Name, setName} = useState("");
-  const {Email, setEmail} = useState("");
-  const {SID, setSID} = useState("");
-  const {Password, setPassword} = useState("");
+  const [Name, setName] = useState("");
+  const [Email, setEmail] = useState("");
+  const [SID, setSID] = useState("");
+  const [Password, setPassword] = useState("");
 
   return (
     <View style={styles.viewStyle}>

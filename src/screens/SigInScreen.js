@@ -7,8 +7,8 @@ import {getDataJSON} from '../functions/AsyncStorageFunctions';
 
 const SigInScreen = (props) =>{
 
-  const {Email, setEmail} = useState("");
-  const {Password, setPassword} = useState("");
+  const [Email, setEmail] = useState("");
+  const [Password, setPassword] = useState("");
 
   return (
 
@@ -41,17 +41,25 @@ const SigInScreen = (props) =>{
             title=" Sign In!"
             type='solid'
             onPress={function(){
-              //console.log('ok');
+
               // auth.setIsLoggedIn(true);
               let UserData = getDataJSON(Email);
-              if(UserData.password == Password){
-                // props.navigation.navigation("Home");
-                auth.setIsLoggedIn(true);
-                auth.setCurrentUser(UserData);
-              } else{
-                alert('login Failed');
-                console.log(UserData);
-              }
+              
+                UserData.then(function(result){
+                    // console.log(result);
+                    if(result.password == Password){
+                      // console.log(result);
+                      // props.navigation.navigation("Home");
+                        auth.setIsLoggedIn(true);
+                        auth.setCurrentUser(UserData);
+                    } else{
+                      alert('login Failed');
+                      // console.log(UserData);
+                    }
+
+                }
+              )
+
 
             }}
           />
